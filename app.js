@@ -1,17 +1,15 @@
-const createGrid = () => {
-    let container = document.createElement('div')
-    container.className = 'container';
-    for (i = 0; i < 16; i++){
-        box = document.createElement('div')
-        box.className = 'box'
-        container.appendChild(box)
+const gridContainer = document.querySelector('#grid-container')
+
+window.addEventListener("load", setDefaultGrid);
+
+function setGridSize(size) {
+    gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`
+}
+
+function fillGrid(size) {
+    for (let i = 0; i < size * size; i++) {
+        const gridElement = document.createElement("div")
+        gridElement.classList = "grid-element"
+        // Check his CSS
     }
-    document.body.appendChild(container)
-    console.log(document.body)
-};
-
-creationBtn = document.getElementById('creationBtn');
-creationBtn.addEventListener('click', createGrid);
-
-box = document.getElementById('box')
-box.addEventListener('hover', )
+}
