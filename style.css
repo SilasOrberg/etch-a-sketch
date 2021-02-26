@@ -27,3 +27,9 @@ body {
     margin: 2rem auto;
     border: 2px solid var(--border)
 }
+
+.button {
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 6px;
+}

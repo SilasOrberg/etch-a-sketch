@@ -1,5 +1,7 @@
-console.log('penis')
 const gridContainer = document.querySelector('#grid-container')
+const resetButton = document.querySelector('#reset-button')
+
+resetButton.addEventListener('click', changeSize)
 
 // Set the default grid when the program is loaded
 function setDefaultGrid() {
@@ -33,3 +35,26 @@ function changeColor(e) {
     e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
 }
 
+// Change size of grid
+function changeSize() {
+    let newSize = prompt("Enter new size")
+    if (newSize !== null) {
+        newSize = parseInt(newSize);
+        if (newSize < 1 || newSize > 200 || Number.isNaN(newSize) ) {
+            alert("Enter a number from 1-500 range")
+            changeSize();
+        } else {
+            clearGrid();
+            setGridSize(newSize);
+            fillGrid(newSize);
+        }
+    }
+}
+
+// Clear the grid
+function clearGrid() {
+    const gridArray = Array.from(gridContainer.childNodes);
+    gridArray.forEach((element) => {
+        gridContainer.removeChild(element);
+    })
+}
